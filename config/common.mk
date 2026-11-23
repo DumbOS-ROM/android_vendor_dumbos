@@ -2,7 +2,7 @@ ifndef _DUMBOS_COMMON_MK_INCLUDED
 _DUMBOS_COMMON_MK_INCLUDED := true
 
 # ==============================================================================
-# LineageDumb (DumbOS) Product Integration - Android 14 (lineage-21.0)
+# LineageDumb (DumbOS) Product Integration - Android 15 (lineage-22.2)
 # ==============================================================================
 
 # 1. Inherit safe properties & package replacements

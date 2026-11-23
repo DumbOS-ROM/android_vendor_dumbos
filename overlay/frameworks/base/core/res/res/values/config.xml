@@ -13,12 +13,11 @@
     <bool name="config_dreamsSupported">false</bool>
     <bool name="config_enableWallpaperService">true</bool>
     <bool name="config_supportsRoundedCornersOnWindows">false</bool>
-    <bool name="config_pinnerHomeApp">false</bool>
 
     <!-- 3. Force Dark Mode Default (2 = MODE_NIGHT_YES) -->
     <integer name="config_defaultNightMode">2</integer>
 
-    <!-- 4. Disable Digital Wellbeing Hook & Emergency SOS Gesture (Android 14 keys) -->
+    <!-- 4. Disable Digital Wellbeing Hook & Emergency SOS Gesture (Android 15 keys) -->
     <string name="config_systemWellbeing" translatable="false"></string>
     <bool name="config_emergencyGestureEnabled">false</bool>
     <bool name="config_defaultEmergencyGestureEnabled">false</bool>

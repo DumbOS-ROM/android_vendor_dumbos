@@ -62,6 +62,7 @@ android_app_import {
         "Email",
         "Exchange2",
         "Profiles",
+        "PrivateSpace",
         "IconPackCircularAndroidOverlay",
         "IconPackCircularLauncherOverlay",
         "IconPackCircularSettingsOverlay",
