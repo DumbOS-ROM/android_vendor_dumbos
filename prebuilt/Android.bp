@@ -1,0 +1,141 @@
+// LineageDumb Prebuilt Applications, Helper Binaries & Global Bloat Overrides
+// All prebuilt APKs keep enforce_uses_libs: false and dex_preopt: { enabled: false }
+// so presigned upstream APKs compile across all device trees without strict lib checks.
+
+android_app_import {
+    name: "Olauncher",
+    apk: "app/Olauncher/Olauncher.apk",
+    presigned: true,
+    product_specific: true,
+    enforce_uses_libs: false,
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
+android_app_import {
+    name: "SimpleKeyboard",
+    apk: "app/SimpleKeyboard/SimpleKeyboard.apk",
+    presigned: true,
+    product_specific: true,
+    enforce_uses_libs: false,
+    dex_preopt: {
+        enabled: false,
+    },
+    // Overrides bloatware, setup wizards, CJK multi-MB fonts, and stock fonts.xml
+    // across all LineageOS product inheritance scopes cleanly via _pif_overrides.
+    overrides: [
+        "LatinIME",
+        "OpenWnn",
+        "Home",
+        "Launcher2",
+        "Launcher3",
+        "QuickSearchBox",
+        "LineageSetupWizard",
+        "SetupWizard",
+        "Provision",
+        "AudioFX",
+        "Eleven",
+        "Twelve",
+        "Etar",
+        "Calendar",
+        "Recorder",
+        "Seedvault",
+        "Camelot",
+        "Jelly",
+        "Browser",
+        "Browser2",
+        "Backgrounds",
+        "AvatarPicker",
+        "ThemePicker",
+        "ThemesStub",
+        "WallpaperPicker",
+        "WallpaperPickerGoogle",
+        "WallpapersBReel",
+        "LiveWallpapersPicker",
+        "QuickAccessWallet",
+        "PhotoTable",
+        "BasicDreams",
+        "PrintSpooler",
+        "BuiltInPrintService",
+        "EasterEgg",
+        "Email",
+        "Exchange2",
+        "Profiles",
+        "IconPackCircularAndroidOverlay",
+        "IconPackCircularLauncherOverlay",
+        "IconPackCircularSettingsOverlay",
+        "IconPackCircularSystemUIOverlay",
+        "IconPackFilledAndroidOverlay",
+        "IconPackFilledLauncherOverlay",
+        "IconPackFilledSettingsOverlay",
+        "IconPackFilledSystemUIOverlay",
+        "IconPackKaiAndroidOverlay",
+        "IconPackKaiLauncherOverlay",
+        "IconPackKaiSettingsOverlay",
+        "IconPackKaiSystemUIOverlay",
+        "IconPackRoundedAndroidOverlay",
+        "IconPackRoundedLauncherOverlay",
+        "IconPackRoundedSettingsOverlay",
+        "IconPackRoundedSystemUIOverlay",
+        "IconPackSamAndroidOverlay",
+        "IconPackSamLauncherOverlay",
+        "IconPackSamSettingsOverlay",
+        "IconPackSamSystemUIOverlay",
+        "IconPackVictorAndroidOverlay",
+        "IconPackVictorLauncherOverlay",
+        "IconPackVictorSettingsOverlay",
+        "IconPackVictorSystemUIOverlay",
+        "IconShapePebbleOverlay",
+        "IconShapeRoundedRectOverlay",
+        "IconShapeSquareOverlay",
+        "IconShapeSquircleOverlay",
+        "IconShapeTaperedRectOverlay",
+        "IconShapeTeardropOverlay",
+        "IconShapeVesselOverlay",
+        "FontLatoOverlay",
+        "FontRubikOverlay",
+        "fonts_customization.xml",
+        "fonts.xml",
+        "NotoSansCJK-Regular.ttc",
+        "NotoSerifCJK-Regular.ttc",
+        "libtextclassifier_annotator_en_model",
+        "libtextclassifier_annotator_universal_model",
+        "libtextclassifier_actions_suggestions_universal_model",
+        "libtextclassifier_lang_id_model",
+    ],
+}
+
+android_app_import {
+    name: "AuroraStore",
+    apk: "app/AuroraStore/AuroraStore.apk",
+    presigned: true,
+    product_specific: true,
+    enforce_uses_libs: false,
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
+android_app_import {
+    name: "Markor",
+    apk: "app/Markor/Markor.apk",
+    presigned: true,
+    product_specific: true,
+    enforce_uses_libs: false,
+    dex_preopt: {
+        enabled: false,
+    },
+}
+
+sh_binary {
+    name: "dumbos-mode",
+    src: "bin/dumbos-mode",
+    product_specific: true,
+}
+
+sh_binary {
+    name: "dumbos-setup",
+    src: "bin/dumbos-setup",
+    product_specific: true,
+}

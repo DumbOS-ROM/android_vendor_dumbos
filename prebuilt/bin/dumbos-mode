@@ -1,0 +1,49 @@
+#!/system/bin/sh
+# DumbOS Zero-RAM Mode Switcher
+# Usage: dumbos-mode [normal | dnd | call-only | night-bw | status]
+
+MODE="$1"
+
+case "$MODE" in
+  normal)
+    svc wifi enable
+    svc data enable
+    cmd netpolicy set restrict-background false
+    cmd notification set_dnd off
+    settings put secure accessibility_display_daltonizer_enabled 0
+    cmd power set-mode 0
+    settings put system dumbos_mode "Normal"
+    ;;
+
+  dnd)
+    cmd notification set_dnd priority
+    settings put secure accessibility_display_daltonizer_enabled 0
+    settings put system dumbos_mode "Fokus (DND)"
+    ;;
+
+  call-only)
+    svc wifi disable
+    svc data disable
+    cmd netpolicy set restrict-background true
+    cmd notification set_dnd off
+    cmd power set-mode 1
+    settings put system dumbos_mode "Hanya Telepon & SMS"
+    ;;
+
+  night-bw)
+    settings put secure accessibility_display_daltonizer 0
+    settings put secure accessibility_display_daltonizer_enabled 1
+    cmd notification set_dnd priority
+    cmd power set-mode 1
+    settings put system dumbos_mode "Malam (Hitam-Putih)"
+    ;;
+
+  status)
+    settings get system dumbos_mode
+    ;;
+
+  *)
+    echo "Usage: dumbos-mode {normal|dnd|call-only|night-bw|status}"
+    exit 1
+    ;;
+esac

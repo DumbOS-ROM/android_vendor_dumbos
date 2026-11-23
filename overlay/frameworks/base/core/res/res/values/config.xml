@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1. Disable Multi-User & Guest User -->
+    <bool name="config_enableMultiUserUI">false</bool>
+    <integer name="config_multiuserMaximumUsers">1</integer>
+    <bool name="config_guestUserAutoCreated">false</bool>
+    <bool name="config_multiuserDelayUserDataLocking">false</bool>
+
+    <!-- 2. Disable Heavy Multitasking & Window Rounded Corner Compositor Overhead -->
+    <bool name="config_supportsMultiWindow">false</bool>
+    <bool name="config_supportsSplitScreenMultiWindow">false</bool>
+    <bool name="config_supportsBubble">false</bool>
+    <bool name="config_dreamsSupported">false</bool>
+    <bool name="config_enableWallpaperService">true</bool>
+    <bool name="config_supportsRoundedCornersOnWindows">false</bool>
+    <bool name="config_pinnerHomeApp">false</bool>
+
+    <!-- 3. Force Dark Mode Default (2 = MODE_NIGHT_YES) -->
+    <integer name="config_defaultNightMode">2</integer>
+
+    <!-- 4. Disable Digital Wellbeing Hook & Emergency SOS Gesture -->
+    <string name="config_systemWellbeing" translatable="false"></string>
+    <bool name="config_emergencyGestureEnabled">false</bool>
+
+    <!-- 5. Disable Always-On Display & Ambient Pulse Wake -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+    <bool name="config_dozePulsePickup">false</bool>
+
+    <!-- 6. 3-Button Navigation Mode & Keep Quickstep Recents Handler -->
+    <integer name="config_navBarInteractionMode">0</integer>
+    <string name="config_recentsComponentName" translatable="false">com.android.launcher3/com.android.quickstep.RecentsActivity</string>
+</resources>

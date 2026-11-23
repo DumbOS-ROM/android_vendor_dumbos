@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DumbOS fonts.xml: OnePlus Slate Default + Lean Script/Emoji Fallbacks (No 75MB CJK) -->
+<familyset version="23">
+    <!-- Primary Default Font: OnePlus Slate -->
+    <family name="sans-serif">
+        <font weight="100" style="normal">SlateForOnePlus-Thin.ttf</font>
+        <font weight="100" style="italic">SlateForOnePlus-Thin.ttf</font>
+        <font weight="300" style="normal">SlateForOnePlus-Light.ttf</font>
+        <font weight="300" style="italic">SlateForOnePlus-Light.ttf</font>
+        <font weight="400" style="normal">SlateForOnePlus-Regular.ttf</font>
+        <font weight="400" style="italic">SlateForOnePlus-Regular.ttf</font>
+        <font weight="500" style="normal">SlateForOnePlus-Medium.ttf</font>
+        <font weight="500" style="italic">SlateForOnePlus-Medium.ttf</font>
+        <font weight="700" style="normal">SlateForOnePlus-Bold.ttf</font>
+        <font weight="700" style="italic">SlateForOnePlus-Bold.ttf</font>
+        <font weight="900" style="normal">SlateForOnePlus-Black.ttf</font>
+        <font weight="900" style="italic">SlateForOnePlus-Black.ttf</font>
+    </family>
+
+    <alias name="roboto" to="sans-serif" />
+    <alias name="roboto-regular" to="sans-serif" weight="400" />
+    <alias name="roboto-medium" to="sans-serif" weight="500" />
+    <alias name="roboto-bold" to="sans-serif" weight="700" />
+    <alias name="oneplus-slate" to="sans-serif" />
+    <alias name="slate" to="sans-serif" />
+    <alias name="sans-serif-thin" to="sans-serif" weight="100" />
+    <alias name="sans-serif-light" to="sans-serif" weight="300" />
+    <alias name="sans-serif-medium" to="sans-serif" weight="500" />
+    <alias name="sans-serif-black" to="sans-serif" weight="900" />
+    <alias name="sans-serif-condensed" to="sans-serif" />
+    <alias name="sans-serif-condensed-light" to="sans-serif" weight="300" />
+    <alias name="sans-serif-condensed-medium" to="sans-serif" weight="500" />
+    <alias name="arial" to="sans-serif" />
+    <alias name="helvetica" to="sans-serif" />
+    <alias name="tahoma" to="sans-serif" />
+    <alias name="verdana" to="sans-serif" />
+
+    <!-- Map serif safely to Slate so EXCLUDE_SERIF_FONTS := true devices never fail -->
+    <family name="serif">
+        <font weight="400" style="normal">SlateForOnePlus-Regular.ttf</font>
+        <font weight="700" style="normal">SlateForOnePlus-Bold.ttf</font>
+    </family>
+
+    <family name="monospace">
+        <font weight="400" style="normal">DroidSansMono.ttf</font>
+    </family>
+    <alias name="sans-serif-monospace" to="monospace" />
+    <alias name="monaco" to="monospace" />
+
+    <!-- Essential Fallbacks: Emoji, Country Flags, Arabic, Math/UI Symbols, & Extended Latin/Cyrillic -->
+    <family lang="und-Zsye">
+        <font weight="400" style="normal">NotoColorEmoji.ttf</font>
+        <font weight="400" style="normal">NotoColorEmojiFlags.ttf</font>
+    </family>
+    <family lang="und-Arab">
+        <font weight="400" style="normal">NotoNaskhArabic-Regular.ttf</font>
+        <font weight="700" style="normal">NotoNaskhArabic-Bold.ttf</font>
+    </family>
+    <family>
+        <font weight="400" style="normal">NotoSansSymbols-Regular-Subsetted.ttf</font>
+    </family>
+    <family>
+        <font weight="400" style="normal">NotoSansSymbols-Regular-Subsetted2.ttf</font>
+    </family>
+    <family>
+        <font weight="400" style="normal">Roboto-Regular.ttf</font>
+    </family>
+</familyset>

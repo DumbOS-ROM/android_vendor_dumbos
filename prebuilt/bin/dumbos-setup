@@ -1,0 +1,94 @@
+#!/system/bin/sh
+# LineageDumb One-Shot Boot Initialization
+# Executed under u:r:shell:s0 after sys.boot_completed=1.
+# Uses /data/local/tmp/dumbos_initialized (shell_data_file) so zero custom
+# SELinux policy is needed and subsequent boots incur ~0ms overhead.
+
+FLAG="/data/local/tmp/dumbos_initialized"
+if [ -f "$FLAG" ]; then
+    exit 0
+fi
+
+# Wait up to 30s for full boot completion on slow dual-core hardware
+RETRY=0
+while [ "$(getprop sys.boot_completed)" != "1" ] && [ "$RETRY" -lt 30 ]; do
+    sleep 1
+    RETRY=$((RETRY + 1))
+done
+
+# Wait up to 15s for PackageManager to register prebuilt Olauncher
+PM_WAIT=0
+until pm path app.olauncher >/dev/null 2>&1 || [ "$PM_WAIT" -ge 15 ]; do
+    sleep 1
+    PM_WAIT=$((PM_WAIT + 1))
+done
+
+# 1. Guarantee device provisioning is marked complete (SetupWizard is dropped)
+settings put global device_provisioned 1
+settings put secure user_setup_complete 1
+
+# 2. Enforce 0.0x Animation Scales across all 3 global scale keys
+settings put global window_animation_scale 0
+settings put global transition_animation_scale 0
+settings put global animator_duration_scale 0
+
+# 3. Set Olauncher as default HOME role & preferred home activity, then launch
+cmd role add-role-holder android.app.role.HOME app.olauncher >/dev/null 2>&1
+cmd package set-home-activity app.olauncher/.MainActivity >/dev/null 2>&1
+am start -a android.intent.action.MAIN -c android.intent.category.HOME >/dev/null 2>&1
+
+# 4. Enable & select SimpleKeyboard cleanly (replaces LatinIME)
+ime enable rkr.simplekeyboard.inputmethod/.latin.LatinIME >/dev/null 2>&1
+ime set rkr.simplekeyboard.inputmethod/.latin.LatinIME >/dev/null 2>&1
+
+# 5. Enforce Dark Mode & Pure Black (#000000 OLED) LineageBlackTheme
+settings put secure ui_night_mode 2
+cmd uimode night yes >/dev/null 2>&1
+settings put secure berry_black_theme 1
+cmd overlay enable org.lineageos.overlay.customization.blacktheme >/dev/null 2>&1
+
+# 6. Pre-set Daltonizer mode 0 (Monochromacy) disabled by default so QS tile toggles B&W
+settings put secure accessibility_display_daltonizer 0
+settings put secure accessibility_display_daltonizer_enabled 0
+
+# 7. Clean distraction-free Lockscreen & Display defaults
+settings put secure lockscreen_use_double_line_clock 0
+settings put secure lock_screen_show_notifications 1
+settings put secure media_controls_lock_screen 1
+settings put secure qs_media_resumption 0
+settings put secure lockscreen_show_controls 0
+settings put secure lockscreen_show_wallet 0
+settings put secure doze_enabled 0
+settings put secure emergency_gesture_enabled 0
+
+# 8. Disable hidden Wi-Fi & BLE background location scanning when radios are off
+settings put global wifi_scan_always_enabled 0
+settings put global ble_scan_always_enabled 0
+
+# 9. RAM-aware ActivityManager cached process cap (4 on <=2GB RAM, 8 on >2GB RAM)
+MEM_KB=$(awk '/^MemTotal:/ {print $2; exit}' /proc/meminfo 2>/dev/null)
+if [ -n "$MEM_KB" ] && [ "$MEM_KB" -gt 2200000 ]; then
+    MAX_CACHED=8
+else
+    MAX_CACHED=4
+fi
+settings put global activity_manager_constants "max_cached_processes=$MAX_CACHED"
+cmd device_config put activity_manager max_cached_processes "$MAX_CACHED" >/dev/null 2>&1
+cmd device_config put textclassifier system_textclassifier_enabled false >/dev/null 2>&1
+
+# 10. Pre-grant runtime permissions & AppOps for bundled prebuilts + MicroG (if present)
+appops set com.aurora.store REQUEST_INSTALL_PACKAGES allow >/dev/null 2>&1
+pm grant com.aurora.store android.permission.POST_NOTIFICATIONS >/dev/null 2>&1
+appops set net.gsantner.markor MANAGE_EXTERNAL_STORAGE allow >/dev/null 2>&1
+
+if pm path com.google.android.gms >/dev/null 2>&1; then
+    dumpsys deviceidle whitelist +com.google.android.gms >/dev/null 2>&1
+    pm grant com.google.android.gms android.permission.POST_NOTIFICATIONS >/dev/null 2>&1
+    pm grant com.google.android.gms android.permission.READ_PHONE_STATE >/dev/null 2>&1
+    pm grant com.google.android.gms android.permission.ACCESS_COARSE_LOCATION >/dev/null 2>&1
+    pm grant com.google.android.gms android.permission.ACCESS_FINE_LOCATION >/dev/null 2>&1
+fi
+
+settings put system dumbos_mode "Normal"
+mkdir -p /data/local/tmp
+touch "$FLAG"
