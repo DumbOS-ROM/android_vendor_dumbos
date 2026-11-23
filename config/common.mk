@@ -2,7 +2,7 @@ ifndef _DUMBOS_COMMON_MK_INCLUDED
 _DUMBOS_COMMON_MK_INCLUDED := true
 
 # ==============================================================================
-# LineageDumb (DumbOS) Product Integration - Android 13 (lineage-20.0)
+# LineageDumb (DumbOS) Product Integration - Android 14 (lineage-21.0)
 # ==============================================================================
 
 # 1. Inherit safe properties & package replacements
@@ -28,10 +28,11 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/dumbos/prebuilt/etc/init/init.dumbos.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.dumbos.rc
 
-# 6. Custom System Font: OnePlus Slate (installed alongside non-CJK fallback fonts.xml;
-#    Soong fonts.xml is cleanly overridden in prebuilt/Android.bp to prevent Ninja duplicates)
+# 6. Custom System Font: OnePlus Slate (Android 14 uses both fonts.xml & font_fallback.xml;
+#    both Soong modules are overridden in prebuilt/Android.bp to prevent Ninja duplicates)
 PRODUCT_COPY_FILES += \
     vendor/dumbos/prebuilt/fonts/fonts.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/fonts.xml \
+    vendor/dumbos/prebuilt/fonts/font_fallback.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/font_fallback.xml \
     vendor/dumbos/prebuilt/fonts/ttf/OnePlusSlate-Black.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/OnePlusSlate-Black.ttf \
     vendor/dumbos/prebuilt/fonts/ttf/OnePlusSlate-Bold.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/OnePlusSlate-Bold.ttf \
     vendor/dumbos/prebuilt/fonts/ttf/OnePlusSlate-Light.ttf:$(TARGET_COPY_OUT_SYSTEM)/fonts/OnePlusSlate-Light.ttf \
@@ -49,6 +50,7 @@ PRODUCT_COPY_FILES += \
 # 7. Whitelist /system font additions for modern devices enforcing artifact path checks
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/etc/fonts.xml \
+    system/etc/font_fallback.xml \
     system/fonts/OnePlusSlate-Black.ttf \
     system/fonts/OnePlusSlate-Bold.ttf \
     system/fonts/OnePlusSlate-Light.ttf \

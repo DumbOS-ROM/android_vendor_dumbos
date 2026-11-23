@@ -18,9 +18,10 @@
     <!-- 3. Force Dark Mode Default (2 = MODE_NIGHT_YES) -->
     <integer name="config_defaultNightMode">2</integer>
 
-    <!-- 4. Disable Digital Wellbeing Hook & Emergency SOS Gesture -->
+    <!-- 4. Disable Digital Wellbeing Hook & Emergency SOS Gesture (Android 14 keys) -->
     <string name="config_systemWellbeing" translatable="false"></string>
     <bool name="config_emergencyGestureEnabled">false</bool>
+    <bool name="config_defaultEmergencyGestureEnabled">false</bool>
 
     <!-- 5. Disable Always-On Display & Ambient Pulse Wake -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>

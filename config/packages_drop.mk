@@ -2,7 +2,7 @@ ifndef _DUMBOS_PACKAGES_DROP_MK_INCLUDED
 _DUMBOS_PACKAGES_DROP_MK_INCLUDED := true
 
 # ==============================================================================
-# LineageDumb Packages & Bloatware Replacement - Android 13 (lineage-20.0)
+# LineageDumb Packages & Bloatware Replacement - Android 14 (lineage-21.0)
 # ==============================================================================
 # NOTE: `filter-out` across inherit-product boundaries does NOT remove packages
 # requested by vendor/lineage/config/*. All bloat, CJK font, and ML classifier
@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
     LineageBlackTheme \
     DeskClock \
     ExactCalculator \
-    Gallery2 \
+    Glimpse \
     DocumentsUI \
     CaptivePortalLogin \
     webview

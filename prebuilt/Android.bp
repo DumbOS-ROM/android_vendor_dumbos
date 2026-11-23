@@ -97,6 +97,7 @@ android_app_import {
         "FontRubikOverlay",
         "fonts_customization.xml",
         "fonts.xml",
+        "font_fallback.xml",
         "NotoSansCJK-Regular.ttc",
         "NotoSerifCJK-Regular.ttc",
         "libtextclassifier_annotator_en_model",
