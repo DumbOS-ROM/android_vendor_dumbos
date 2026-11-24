@@ -141,6 +141,7 @@ public class HomeActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        RecentsActivity.finishIfActive();
         updateModePill();
     }
 

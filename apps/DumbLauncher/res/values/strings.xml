@@ -8,4 +8,9 @@
     <string name="lock_label">Lock</string>
     <string name="lock_bracket">[Lock]</string>
     <string name="mode_default">Mode: Normal</string>
+    <string name="recents_title">RECENTS</string>
+    <string name="recents_clear_all">Clear All</string>
+    <string name="recents_empty">No recent apps</string>
+    <string name="recents_close">Close</string>
+    <string name="recents_footer_hint">Single-process Recents • Hold item to Force Stop</string>
 </resources>
