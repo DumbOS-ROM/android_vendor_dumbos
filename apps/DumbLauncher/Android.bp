@@ -1,0 +1,31 @@
+android_app {
+    name: "DumbLauncher",
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    product_specific: true,
+    optimize: {
+        enabled: false,
+    },
+    overrides: [
+        "Olauncher",
+        "Home",
+        "Launcher2",
+        "Launcher3",
+        "QuickSearchBox",
+    ],
+    required: [
+        "privapp_whitelist_com.dumbos.launcher",
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_com.dumbos.launcher",
+    product_specific: true,
+    sub_dir: "permissions",
+    src: "privapp-permissions-com.dumbos.launcher.xml",
+    filename_from_src: true,
+}

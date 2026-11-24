@@ -2,24 +2,19 @@ ifndef _DUMBOS_PACKAGES_DROP_MK_INCLUDED
 _DUMBOS_PACKAGES_DROP_MK_INCLUDED := true
 
 # ==============================================================================
-# LineageDumb Packages & Bloatware Replacement - Android 14 (lineage-21.0)
-# ==============================================================================
-# NOTE: `filter-out` across inherit-product boundaries does NOT remove packages
-# requested by vendor/lineage/config/*. All bloat, CJK font, and ML classifier
-# removals are executed cleanly via `overrides: [...]` in prebuilt/Android.bp.
+# DumbOS Packages & Bloatware Replacement - Android 14 (lineage-21.0)
 # ==============================================================================
 
-# 1. Core DumbOS Userland
+# 1. Core DumbOS Userland (Custom Java DumbLauncher + SimpleKeyboard + AuroraStore + Markor)
 PRODUCT_PACKAGES += \
-    Olauncher \
+    DumbLauncher \
     SimpleKeyboard \
     AuroraStore \
     Markor \
     dumbos-mode \
     dumbos-setup
 
-# 2. Preserve Quickstep Recents/Overview service matching device PRODUCT_TYPE
-#    (Olauncher handles HOME role via dumbos-setup; Quickstep handles Alt-Tab/Recents)
+# 2. Keep Quickstep Recents/Overview service matching device PRODUCT_TYPE
 ifeq ($(PRODUCT_TYPE),go)
 PRODUCT_PACKAGES += \
     TrebuchetQuickStepGo
@@ -28,7 +23,7 @@ PRODUCT_PACKAGES += \
     TrebuchetQuickStep
 endif
 
-# 3. Essential Lightweight Apps & Pure Black Theme
+# 3. Essential Lightweight Apps & Pure Black OLED Theme
 PRODUCT_PACKAGES += \
     LineageBlackTheme \
     DeskClock \
@@ -43,8 +38,8 @@ PRODUCT_PACKAGES += \
     Aperture
 endif
 
-# 4. MicroG Open-Source GMS Replacement (added directly without WITH_GMS=true so
-#    FDroid is not pulled alongside AuroraStore)
+# 4. MicroG Open-Source GMS Replacement (added directly without WITH_GMS=true
+#    so FDroid is not pulled alongside AuroraStore)
 ifneq (,$(wildcard vendor/partner_gms/GmsCore/Android.mk))
 PRODUCT_PACKAGES += \
     GmsCore \

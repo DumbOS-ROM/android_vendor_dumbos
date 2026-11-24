@@ -1,17 +1,5 @@
-// LineageDumb Prebuilt Applications, Helper Binaries & Global Bloat Overrides
-// All prebuilt APKs keep enforce_uses_libs: false and dex_preopt: { enabled: false }
-// so presigned upstream APKs compile across all device trees without strict lib checks.
-
-android_app_import {
-    name: "Olauncher",
-    apk: "app/Olauncher/Olauncher.apk",
-    presigned: true,
-    product_specific: true,
-    enforce_uses_libs: false,
-    dex_preopt: {
-        enabled: false,
-    },
-}
+// DumbOS Prebuilt Applications, Helper Binaries & Global Bloat Overrides
+// NOTE: Launcher is now built natively from Java source in apps/DumbLauncher.
 
 android_app_import {
     name: "SimpleKeyboard",
@@ -22,15 +10,11 @@ android_app_import {
     dex_preopt: {
         enabled: false,
     },
-    // Overrides bloatware, setup wizards, CJK multi-MB fonts, and stock fonts.xml
+    // Overrides bloatware, setup wizards, CJK multi-MB fonts, and stock fonts XMLs
     // across all LineageOS product inheritance scopes cleanly via _pif_overrides.
     overrides: [
         "LatinIME",
         "OpenWnn",
-        "Home",
-        "Launcher2",
-        "Launcher3",
-        "QuickSearchBox",
         "LineageSetupWizard",
         "SetupWizard",
         "Provision",

@@ -2,12 +2,11 @@ ifndef _DUMBOS_PROPS_MK_INCLUDED
 _DUMBOS_PROPS_MK_INCLUDED := true
 
 # ==============================================================================
-# LineageDumb Low-RAM & Stability Properties
+# DumbOS Low-RAM & Stability Properties
 # All assignments use `?=` so device-specific props always win cleanly without
 # duplicate-sysprop build errors (post_process_props.py).
-# IMPORTANT: LMKD PSI is NEVER forced here; kernels with PSI use it natively,
-# while legacy kernels (e.g. Linux 3.4/3.18) safely fall back to vmpressure.
-# Standard LineageOS bootanimation is intentionally preserved.
+# LMKD PSI is NEVER forced here (legacy kernels stay on native vmpressure).
+# Standard LineageOS bootanimation is preserved.
 # ==============================================================================
 
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -19,6 +18,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.setupwizard.mode?=DISABLED \
     ro.launcher.blur.appLaunch?=0 \
     ro.surface_flinger.supports_background_blur?=0 \
+    ro.config.max_starting_bg?=2 \
     pm.dexopt.downgrade_after_inactive_days?=10
 
 endif # _DUMBOS_PROPS_MK_INCLUDED
