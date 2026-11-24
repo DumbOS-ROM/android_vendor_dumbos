@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DumbLauncher</string>
+    <string name="tile_mode_label">DumbOS Mode</string>
+    <string name="all_apps">Semua Aplikasi</string>
+    <string name="drawer_title">DAFTAR A-Z (TANPA IKON)</string>
+    <string name="search_hint">Cari aplikasi...</string>
+    <string name="lock_label">Kunci</string>
+</resources>

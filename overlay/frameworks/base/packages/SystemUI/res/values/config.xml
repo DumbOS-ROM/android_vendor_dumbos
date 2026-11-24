@@ -8,6 +8,6 @@
     <bool name="config_use_large_screen_shade_header">false</bool>
     <bool name="config_smart_replies_in_notifications_enabled">false</bool>
 
-    <!-- 6 Core Dumbphone Quick Settings Tiles -->
-    <string name="quick_settings_tiles_default" translatable="false">internet,bt,dnd,color_correction,battery,flashlight</string>
+    <!-- Core Dumbphone Quick Settings Tiles (with DumbLauncher Mode Tile) -->
+    <string name="quick_settings_tiles_default" translatable="false">internet,bt,custom(com.dumbos.launcher/.DumbModeTileService),dnd,color_correction,battery,flashlight</string>
 </resources>
