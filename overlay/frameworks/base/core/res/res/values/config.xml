@@ -27,7 +27,7 @@
     <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
     <bool name="config_dozePulsePickup">false</bool>
 
-    <!-- 6. 3-Button Navigation Mode & Keep Quickstep Recents Handler -->
+    <!-- 6. 3-Button Navigation Mode & Route Recents to DumbLauncher RecentsActivity -->
     <integer name="config_navBarInteractionMode">0</integer>
-    <string name="config_recentsComponentName" translatable="false">com.android.launcher3/com.android.quickstep.RecentsActivity</string>
+    <string name="config_recentsComponentName" translatable="false">com.dumbos.launcher/com.dumbos.launcher.RecentsActivity</string>
 </resources>
