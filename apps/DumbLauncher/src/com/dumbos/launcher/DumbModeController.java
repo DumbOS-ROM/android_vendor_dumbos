@@ -15,9 +15,9 @@ public final class DumbModeController {
     public static final String SETTINGS_KEY_MODE = "dumbos_mode";
 
     public static final String MODE_NORMAL = "Normal";
-    public static final String MODE_DND = "Fokus (DND)";
-    public static final String MODE_CALL_ONLY = "Hanya Telepon & SMS";
-    public static final String MODE_NIGHT_BW = "Malam (Hitam-Putih)";
+    public static final String MODE_DND = "Focus (DND)";
+    public static final String MODE_CALL_ONLY = "Calls & SMS";
+    public static final String MODE_NIGHT_BW = "Night (B&W)";
 
     public static final String[] MODES = new String[] {
         MODE_NORMAL,
