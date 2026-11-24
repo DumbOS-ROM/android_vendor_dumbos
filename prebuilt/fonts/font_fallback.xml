@@ -50,6 +50,8 @@
     <!-- Essential Fallbacks: Emoji, Country Flags, Arabic, Math/UI Symbols, & Extended Latin/Cyrillic -->
     <family lang="und-Zsye">
         <font weight="400" style="normal">NotoColorEmoji.ttf</font>
+    </family>
+    <family lang="und-Zsye">
         <font weight="400" style="normal">NotoColorEmojiFlags.ttf</font>
     </family>
     <family lang="und-Arab">

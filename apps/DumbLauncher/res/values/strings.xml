@@ -2,8 +2,10 @@
 <resources>
     <string name="app_name">DumbLauncher</string>
     <string name="tile_mode_label">DumbOS Mode</string>
-    <string name="all_apps">Semua Aplikasi</string>
-    <string name="drawer_title">DAFTAR A-Z (TANPA IKON)</string>
-    <string name="search_hint">Cari aplikasi...</string>
-    <string name="lock_label">Kunci</string>
+    <string name="all_apps">All Apps</string>
+    <string name="drawer_title">ALL APPS (A-Z)</string>
+    <string name="search_hint">Search apps...</string>
+    <string name="lock_label">Lock</string>
+    <string name="lock_bracket">[Lock]</string>
+    <string name="mode_default">Mode: Normal</string>
 </resources>

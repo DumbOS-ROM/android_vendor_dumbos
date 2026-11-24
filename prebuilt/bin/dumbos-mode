@@ -18,7 +18,7 @@ case "$MODE" in
   dnd)
     cmd notification set_dnd priority
     settings put secure accessibility_display_daltonizer_enabled 0
-    settings put system dumbos_mode "Fokus (DND)"
+    settings put system dumbos_mode "Focus (DND)"
     ;;
 
   call-only)
@@ -27,7 +27,7 @@ case "$MODE" in
     cmd netpolicy set restrict-background true
     cmd notification set_dnd off
     cmd power set-mode 1
-    settings put system dumbos_mode "Hanya Telepon & SMS"
+    settings put system dumbos_mode "Calls & SMS"
     ;;
 
   night-bw)
@@ -35,7 +35,7 @@ case "$MODE" in
     settings put secure accessibility_display_daltonizer_enabled 1
     cmd notification set_dnd priority
     cmd power set-mode 1
-    settings put system dumbos_mode "Malam (Hitam-Putih)"
+    settings put system dumbos_mode "Night (B&W)"
     ;;
 
   status)

@@ -342,16 +342,16 @@ public class HomeActivity extends Activity {
     }
 
     private void seedDefaultFavorites() {
-        addDefaultFavorite("com.android.dialer", "Telepon");
-        addDefaultFavorite("com.google.android.dialer", "Telepon");
-        addDefaultFavorite("com.android.messaging", "Pesan (SMS)");
+        addDefaultFavorite("com.android.dialer", "Phone");
+        addDefaultFavorite("com.google.android.dialer", "Phone");
+        addDefaultFavorite("com.android.messaging", "Messages");
         addDefaultFavorite("com.whatsapp", "WhatsApp");
-        addDefaultFavorite("org.lineageos.aperture", "Kamera");
-        addDefaultFavorite("com.android.camera2", "Kamera");
-        addDefaultFavorite("net.gsantner.markor", "Catatan");
-        addDefaultFavorite("com.android.deskclock", "Jam");
-        addDefaultFavorite("com.aurora.store", "Toko Aplikasi");
-        addDefaultFavorite("com.android.settings", "Pengaturan");
+        addDefaultFavorite("org.lineageos.aperture", "Camera");
+        addDefaultFavorite("com.android.camera2", "Camera");
+        addDefaultFavorite("net.gsantner.markor", "Notes");
+        addDefaultFavorite("com.android.deskclock", "Clock");
+        addDefaultFavorite("com.aurora.store", "App Store");
+        addDefaultFavorite("com.android.settings", "Settings");
     }
 
     private void addDefaultFavorite(String pkgPrefix, String customLabel) {
@@ -402,7 +402,7 @@ public class HomeActivity extends Activity {
         favoritesContainer.removeAllViews();
         if (favorites.isEmpty()) {
             TextView empty = new TextView(this);
-            empty.setText("Buka Semua Aplikasi untuk pin favorit");
+            empty.setText("Open All Apps to pin favorites");
             empty.setTextColor(Color.parseColor("#666666"));
             empty.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             empty.setOnClickListener(v -> showDrawer());
@@ -455,7 +455,7 @@ public class HomeActivity extends Activity {
 
     private void showModePickerDialog() {
         new AlertDialog.Builder(this, R.style.Theme_DumbOS_Dialog)
-                .setTitle("Pilih DumbOS Mode")
+                .setTitle("Select DumbOS Mode")
                 .setItems(DumbModeController.MODES, (dialog, which) -> {
                     DumbModeController.applyMode(this, DumbModeController.MODES[which]);
                     updateModePill();
@@ -465,7 +465,7 @@ public class HomeActivity extends Activity {
 
     private void showFavoriteOptionsDialog(final int index) {
         final AppEntry entry = favorites.get(index);
-        String[] actions = new String[] { "Naikkan Urutan", "Ubah Nama Tampilan", "Hapus dari Homescreen", "Info Aplikasi" };
+        String[] actions = new String[] { "Move Up", "Rename", "Remove from Home", "App Info" };
         new AlertDialog.Builder(this, R.style.Theme_DumbOS_Dialog)
                 .setTitle(entry.label)
                 .setItems(actions, (d, which) -> {
@@ -493,9 +493,9 @@ public class HomeActivity extends Activity {
         input.setTextColor(Color.WHITE);
         input.setPadding(dp(16), dp(12), dp(16), dp(12));
         new AlertDialog.Builder(this, R.style.Theme_DumbOS_Dialog)
-                .setTitle("Ubah Nama")
+                .setTitle("Rename")
                 .setView(input)
-                .setPositiveButton("Simpan", (d, w) -> {
+                .setPositiveButton("Save", (d, w) -> {
                     String next = input.getText().toString().trim();
                     if (!next.isEmpty()) {
                         favorites.set(index, new AppEntry(entry.packageName, entry.activityName, next));
@@ -503,7 +503,7 @@ public class HomeActivity extends Activity {
                         renderFavorites();
                     }
                 })
-                .setNegativeButton("Batal", null)
+                .setNegativeButton("Cancel", null)
                 .show();
     }
 
@@ -515,9 +515,9 @@ public class HomeActivity extends Activity {
                 break;
             }
         }
-        String favAction = isFav ? "Hapus dari Favorit Homescreen" : "Pin ke Favorit Homescreen";
+        String favAction = isFav ? "Remove from Favorites" : "Pin to Home";
         final boolean alreadyFav = isFav;
-        String[] actions = new String[] { favAction, "Info Aplikasi", "Copot Pemasangan" };
+        String[] actions = new String[] { favAction, "App Info", "Uninstall" };
         new AlertDialog.Builder(this, R.style.Theme_DumbOS_Dialog)
                 .setTitle(entry.label)
                 .setItems(actions, (d, which) -> {

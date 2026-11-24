@@ -15,6 +15,9 @@ android_app {
         "Home",
         "Launcher2",
         "Launcher3",
+        "Launcher3QuickStep",
+        "TrebuchetQuickStep",
+        "TrebuchetQuickStepGo",
         "QuickSearchBox",
     ],
     required: [
