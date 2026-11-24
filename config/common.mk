@@ -65,4 +65,8 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/fonts/SlateForOnePlus-Regular.ttf \
     system/fonts/SlateForOnePlus-Thin.ttf
 
+
+# Custom OLED Black & White DumbOS Bootanimation
+TARGET_BOOTANIMATION := vendor/dumbos/prebuilt/media/bootanimation.zip
+
 endif # _DUMBOS_COMMON_MK_INCLUDED
