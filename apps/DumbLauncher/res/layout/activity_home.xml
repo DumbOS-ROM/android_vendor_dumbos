@@ -73,7 +73,7 @@
                     android:paddingEnd="10dp"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
-                    android:text="Mode: Normal"
+                    android:text="@string/mode_default"
                     android:textColor="#D0D0D0"
                     android:textSize="11sp" />
 
@@ -87,7 +87,7 @@
                     android:paddingEnd="2dp"
                     android:paddingTop="4dp"
                     android:paddingBottom="4dp"
-                    android:text="[Kunci]"
+                    android:text="@string/lock_bracket"
                     android:textColor="#666666"
                     android:textSize="11sp" />
             </LinearLayout>

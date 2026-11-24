@@ -14,15 +14,6 @@ PRODUCT_PACKAGES += \
     dumbos-mode \
     dumbos-setup
 
-# 2. Keep Quickstep Recents/Overview service matching device PRODUCT_TYPE
-ifeq ($(PRODUCT_TYPE),go)
-PRODUCT_PACKAGES += \
-    TrebuchetQuickStepGo
-else
-PRODUCT_PACKAGES += \
-    TrebuchetQuickStep
-endif
-
 # 3. Essential Lightweight Apps & Pure Black OLED Theme
 PRODUCT_PACKAGES += \
     LineageBlackTheme \

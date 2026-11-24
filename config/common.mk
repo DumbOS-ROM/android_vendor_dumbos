@@ -15,7 +15,7 @@ PRODUCT_PACKAGE_OVERLAYS := vendor/dumbos/overlay $(PRODUCT_PACKAGE_OVERLAYS)
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/dumbos/overlay
 
 # 3. Default fallback locales (preserves device PRODUCT_LOCALES if already defined)
-PRODUCT_LOCALES ?= en_US id_ID
+PRODUCT_LOCALES ?= en_US
 
 # 4. Tune dexopt filters ONLY if the device already enables WITH_DEXPREOPT
 #    (Never force WITH_DEXPREOPT on small-/system legacy devices.)
@@ -65,6 +65,9 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/fonts/SlateForOnePlus-Regular.ttf \
     system/fonts/SlateForOnePlus-Thin.ttf
 
+
+# Strip unused multi-ABI libs from microG GmsCore.apk during build
+DUMBOS_STRIP_GMSCORE_ABI ?= true
 
 # Custom OLED Black & White DumbOS Bootanimation
 TARGET_BOOTANIMATION := vendor/dumbos/prebuilt/media/bootanimation.zip
