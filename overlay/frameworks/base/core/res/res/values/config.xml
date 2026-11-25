@@ -21,12 +21,14 @@
     <!-- 4. Disable Digital Wellbeing Hook & Emergency SOS Gesture -->
     <string name="config_systemWellbeing" translatable="false"></string>
     <bool name="config_emergencyGestureEnabled">false</bool>
+    <bool name="config_defaultEmergencyGestureEnabled">false</bool>
 
     <!-- 5. Disable Always-On Display & Ambient Pulse Wake -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
     <bool name="config_dozePulsePickup">false</bool>
 
-    <!-- 6. 3-Button Navigation Mode & Route Recents to DumbLauncher RecentsActivity -->
+    <!-- 6. Navigation Mode: Enable Gesture Settings + Route QuickStep/Recents to DumbLauncher -->
+    <bool name="config_swipe_up_gesture_setting_available">true</bool>
     <integer name="config_navBarInteractionMode">0</integer>
     <string name="config_recentsComponentName" translatable="false">com.dumbos.launcher/com.dumbos.launcher.RecentsActivity</string>
 </resources>
