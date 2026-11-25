@@ -52,10 +52,10 @@ public class DumbQuickStepService extends Service {
     private static final String OVERVIEW_PROXY_DESCRIPTOR =
             "com.android.systemui.shared.recents.IOverviewProxy";
 
-    private static final int TRANSACTION_ON_OVERVIEW_TOGGLE = 6;
-    private static final int TRANSACTION_ON_OVERVIEW_SHOWN = 7;
-    private static final int TRANSACTION_ON_OVERVIEW_HIDDEN = 8;
-    private static final int TRANSACTION_ON_UNBIND = 35;
+    private static final int TRANSACTION_ON_OVERVIEW_TOGGLE = IBinder.FIRST_CALL_TRANSACTION + 6;
+    private static final int TRANSACTION_ON_OVERVIEW_SHOWN = IBinder.FIRST_CALL_TRANSACTION + 7;
+    private static final int TRANSACTION_ON_OVERVIEW_HIDDEN = IBinder.FIRST_CALL_TRANSACTION + 8;
+    private static final int TRANSACTION_ON_UNBIND = IBinder.FIRST_CALL_TRANSACTION + 35;
 
     private static final String KEY_NAVIGATION_MODE = "navigation_mode";
     private static final int NAV_MODE_3BUTTON = 0;
